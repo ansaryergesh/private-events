@@ -1,3 +1,5 @@
-<h1>
-Home
-</h1>
+<% if logged_in? %>
+  <p>Hello, <%= current_user.name %> </p>
+<% else %>
+  <p>Sign Up, first</p>
+<% end %>
