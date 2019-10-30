@@ -1,0 +1,6 @@
+<h1><%= @event.description.upcase %> </h1>
+<div>
+	<p><b>Event creator: </b><%= @event.creator.name %></p>
+	<p><b>Date: </b><%= @event.date.strftime("%B %e, %Y") %></p>
+  <p><b>Where: </b><%= @event.location %></p>
+</div>

@@ -1,0 +1,8 @@
+<h1>All events</h1>
+
+<% @events.each do |event| %>
+	<li>
+		<%= link_to event.description, event %>
+		<%= event.date.strftime("%B %e, %Y") %>
+	</li>
+<% end %>
