@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'attendances/new'
+  get 'attendances/create'
+  get 'attendances/destroy'
   get 'events/create'
   root 'static_pages#home'
   get '/signup', to: 'users#new'
