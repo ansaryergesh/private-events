@@ -1,3 +1,23 @@
 <h1>
   <%= @user.name %>
 </h1>
+
+<h1> Upcoming Events: <h1>
+
+<% @user.attended_events.upcoming.each do |e| %>
+  <ul>
+    <li>
+      <p><%= e.event %></p>
+    </li>
+  </ul>
+<% end %>
+
+<h1> Past Events: <h1>
+
+<% @user.attended_events.past.each do |e| %>
+  <ul>
+    <li>
+      <p><%= e.event %></p>
+    </li>
+  </ul>
+<% end %>

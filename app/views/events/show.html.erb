@@ -11,12 +11,12 @@
 <hr>
 
 <h1> Attedancees: <h1>
-  <% if @event.attendances.include? @event%>
-	<ul>
-	<li>
-		<%= attendances.attendee_id%>
-	</li>
-	</ul>
+  <% @event.attendees.each do |e| %>
+		<ul>
+		<li>
+			<%= e.name %>
+		</li>
+		</ul>
   <%end%>
 
 
