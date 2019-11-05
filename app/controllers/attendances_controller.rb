@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AttendancesController < ApplicationController
   def new
     @attendance = Attendance.new
@@ -6,7 +8,7 @@ class AttendancesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     current_user.attend(@event)
-    redirect_to  @event
+    redirect_to @event
   end
 
   def cancel
@@ -22,5 +24,4 @@ class AttendancesController < ApplicationController
   def previous
     @prev_events = current_user.past
   end
-
 end

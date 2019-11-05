@@ -1,5 +1,6 @@
-class EventsController < ApplicationController
+# frozen_string_literal: true
 
+class EventsController < ApplicationController
   def index
     @events = Event.all
   end
@@ -16,7 +17,6 @@ class EventsController < ApplicationController
     else
       render 'new'
     end
-    
   end
 
   def show
@@ -24,8 +24,8 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
     params.require(:event).permit(:location, :event, :description, :date)
   end
-
 end
