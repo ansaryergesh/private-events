@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'attendances/new'
-  get 'attendances/create'
-  get 'attendances/destroy'
   get 'events/create'
   root 'static_pages#home'
   get '/signup', to: 'users#new'
@@ -12,7 +9,10 @@ Rails.application.routes.draw do
   get '/new/event', to: 'events#new'
   post '/new/event', to: 'events#create'
   get '/events', to: 'events#index'
+  get '/events/:id', to: 'events#show'
+  delete  'attendances', to: 'attendances#cancel'
   resources :users
   resources :events
+  resources :attendances
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

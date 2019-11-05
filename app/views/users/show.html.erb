@@ -1,23 +1,24 @@
-<h1>
+<h1> Profile page:
   <%= @user.name %>
 </h1>
-
+<hr>
+<h1> List of events where you attending: </h1>
 <h1> Upcoming Events: <h1>
 
 <% @user.attended_events.upcoming.each do |e| %>
   <ul>
-    <li>
-      <p><%= e.event %></p>
+    <li class = "events-li">
+      <p><%=link_to e.event, event_path %></p>
     </li>
   </ul>
 <% end %>
-
+<hr>
 <h1> Past Events: <h1>
 
 <% @user.attended_events.past.each do |e| %>
   <ul>
-    <li>
-      <p><%= e.event %></p>
+    <li class="events-li">
+      <p><%=link_to e.event, event_path %></p>
     </li>
   </ul>
 <% end %>

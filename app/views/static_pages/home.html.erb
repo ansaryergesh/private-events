@@ -1,22 +1,32 @@
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+
+
 <% if logged_in? %>
-  <h1>Hello, <%= current_user.name %> </h1>
-  <% attendances.attended_events.upcoming.each do |e| %>
+
+  <h1> List of all Events</h1>
+  <h1> Upcoming Events: </h1>
+  <% Event.upcoming.each do |e| %>
   <ul>
     <li>
-      <p><%= e.event %></p>
+      <p class="center"><%=link_to e.event, event_url(e.id) %></p>
     </li>
   </ul>
 <% end %>
 
 <h1> Past Events: <h1>
 
-<% attendaces.attended_events.past.each do |e| %>
+<% Event.past.each do |e| %>
   <ul>
     <li>
-      <p><%= e.event %></p>
+      <p><%=link_to e.event, event_url(e.id) %></p>
     </li>
   </ul>
 <% end %>
 <% else %>
-  <p>Sign Up, first</p>
+  <h1>Sign Up, first</h1>
 <% end %>
+
+
+ </div>
+ </div>

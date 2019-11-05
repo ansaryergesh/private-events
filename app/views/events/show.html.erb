@@ -1,7 +1,18 @@
 <div class="row">
  <div class="col-md-6 col-md-offset-3">
 
+
+
+
 <h1><%= @event.description.upcase %> </h1>
+	<div class= "center">
+		<% if current_user.attending?(@event)%>
+		 <%= link_to 'Cancel', attendances_path(event_id: @event.id), method: :delete,  class: "btn btn-danger" %>
+		<%else %>
+		<%= link_to 'Attend', attendances_path(event_id: @event.id), method: :post, class: "btn btn-success" %>
+		<%end%>
+	</div>
+
 <div>
 	<p><b>Event creator: </b><%= @event.creator.name %></p>
 	<p><b>Date: </b><%= @event.date.strftime("%B %e, %Y") %></p>
@@ -10,11 +21,15 @@
 
 <hr>
 
+
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+
 <h1> Attedancees: <h1>
   <% @event.attendees.each do |e| %>
 		<ul>
 		<li>
-			<%= e.name %>
+			<%= link_to e.name, user_path(e.id) %>
 		</li>
 		</ul>
   <%end%>

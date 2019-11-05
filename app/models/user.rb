@@ -4,18 +4,17 @@ class User < ApplicationRecord
     has_many :attendances, foreign_key: :attendee_id
     has_many :attended_events, :through => :attendances
 
-
-
+    validates :name,    presence: true
 
     def attend(event)
-        attendances.attended_event_id.push event
+        attendances.create(attended_event_id: event.id)
     end
 
     def cancel(event)
-        attendances.attended_event_id.delete event
+        attendances.find_by(attended_event_id: event.id).destroy
     end
 
-    # def attended?(event)
-    #     attendances.include? event
-    # end
+    def attending?(event)
+        event.attendees.include?(self)
+    end
 end
