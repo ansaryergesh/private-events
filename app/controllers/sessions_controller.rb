@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash.now[:danger] = 'Wrong Name'
+      render 'new'
     end
   end
 
