@@ -22,3 +22,8 @@
     </li>
   </ul>
 <% end %>
+
+<h1> Created events: <h1>
+<% @user.events.each do |e|%>
+  <p><%=link_to e.event, event_path %></p>
+<% end %>
