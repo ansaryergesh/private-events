@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     if @event.save
       flash.now[:success] = 'Welcome to the Events App'
       redirect_to @event
+      @event.attendees.push(current_user)
     else
       render 'new'
     end
