@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :attendances, foreign_key: :attendee_id
   has_many :attended_events, through: :attendances
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { in: 3..15 }
 
   def attend(event)
     attendances.create(attended_event_id: event.id)
