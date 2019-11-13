@@ -7,6 +7,27 @@ Build a site similar to a private <b>Eventbrite</b> which allows users to create
 * [Ansar](https://github.com/ansaryergesh)
 * [Amanda](https://github.com/vieiramanda11)
 
+
+## Features
+
+- **Users**
+  - Sign-up / login / logout.
+  - Show profile page
+  - Create / update / delete event.
+  - Has many events.
+
+- **Events**
+  - Create / update / delete.
+  - Event filtered by upcoming and past events
+  - Belongs to a User.
+
+- **Attendanees**
+  - User can attend/leave event
+  - All created events by a user are automatically attended by the user
+  - Belongs to a User
+  - Belongs to a Event
+
+
 ## Getting started
 
 To get started with the app, clone the repo and then install the needed gems:
